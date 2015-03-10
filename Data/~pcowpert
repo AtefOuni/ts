@@ -1,0 +1,188 @@
+<html>
+<head>
+<title> The home page of Paul Cowpertwait </title>
+</head>
+<body bgcolor=white>
+<body>
+
+<hr></hr>
+
+<table width="100%", border="0">
+<td width = "10%">
+<img src="mugshot3.jpg" width=150 alt="pspc">
+</td>
+
+<td width = "70%">
+<font size=3>
+<p>Paul S.P. Cowpertwait | Associate Professor</p>
+<p>Head of Mathematical Sciences </p>
+<p><a href=http://www.aut.ac.nz/study-at-aut/study-areas/computer-mathematical-sciences/>School of Computer and Mathematical Sciences</a></p>
+<p><a href=http://www.aut.ac.nz/>Auckland University of Technology</p></a>AUT Tower, 2-14 Wakefield Street</p>
+<p> Email: <a href="mailto:paul.cowpertwait@aut.ac.nz">paul.cowpertwait@aut.ac.nz</a></p>
+<!--
+<p>Other sites: <a href=http://scholar.google.co.nz/citations?hl=en&user=rUyCNRYAAAAJ>Google Scholar Profile;</a>
+<a href=http://www.aut.ac.nz/study-at-aut/study-areas/computer-mathematical-sciences/our-staff/associate-professors/paul-s.p.-cowpertwait>Personal School Profile</a></p>
+-->
+</font>
+</td>
+<td width = "10%">
+<a href=http://staff.elena.aut.ac.nz/Paul-Cowpertwait/ts><img src="ts/cover-large.gif" width=150 alt="bookcover"></a>
+</td>
+</table>
+
+<hr></hr>
+
+<table align="center" cellpadding="5" border="1">
+<tr>
+<th colspan="3" align="center">Links</th>
+</tr>
+
+<tr>
+<td valign="top"><a href="#analytics">Analytics</td>
+<td valign="top"><a href="#research">Research Interests and Projects</td>
+</tr>
+
+<tr>
+<td valign="top"><a href="#consultancy">External Research and Consultancy </a></td>
+<td valign="top"><a href=http://scholar.google.co.nz/citations?hl=en&user=rUyCNRYAAAAJ>Publications: Google Scholar Profile</a></td>
+</tr>
+
+</table>
+
+
+<hr></hr>
+
+<h2><a id="analytics">Analytics at AUT</h2>
+
+<p> 
+In general terms, analytics means methods of logical analysis.
+However, in applications, analytics has come to mean the use of computer technology 
+and statistics to solve problems in business and industry so that, in this sense, analytics
+is strongly linked to information systems and software environments.  
+To reflect this analytics at AUT has a strong foundation in mathematics, 
+statistics, and statistical programming, 
+followed by more vocational subjects in the latter part of the programme. 
+A suitable and popular choice is to do a double major in Analytics with either Computer Science or 
+Applied Mathematics.  
+</p>
+
+<p>
+The analytics major at AUT consists primarily of three streams: 
+(i) applied statistics; (ii) data mining and statistical programming; (iii) applied probability and
+stochastic modelling. 
+Papers that form the core to the analytics major include: Applied Statistics,  Probability, Forecasting, 
+Logical Database Design, Statistical Methods,  
+Data Mining and Knowledge Engineering, Statistical Computing with SAS, Industrial and Business Analytics, 
+and Applied Stochastic Models.  
+The ideology
+underpinning the S language and, especially, R (being an open
+source environment with properties of a functional language), also 
+forms a thread through the major.  Although proprietary software
+is required for courses that have particular industrial and
+business applications, typically the selected software environments
+are open source and free to foster the sharing of knowledge with the wider
+community.
+</p>
+
+
+<hr></hr>
+
+<h2><a id="research">Research Projects</h2>
+
+
+<p> Bayesian fitting procedures for hydrological point processes
+(with Katharina Parry, Kate Lee, Sarah Marshall, and Oliver Hannaford). </a> 
+</p>
+
+<p> Regionalisation methodologies for hydrological applications 
+<a href=http://www.agu.org/pubs/crossref/2011/2011WR011084.shtml> (see WRR paper here)</a> 
+</p>
+
+<p> Stochastic rainfall modelling allowing for diurnal variation 
+(with Barry McDonald and Azlina Ismail).  </p>
+
+<p> Using R for time series analysis (with Andrew Metcalfe,
+University of Adelaide). </p>
+
+
+<hr></hr>
+
+
+<h2><a id="consultancy">External Research and Consultancy Contracts</h2>
+
+<p> Development of a spatial-temporal stochastic rainfall model for the Auckland region. Auckland Council  (2012-14).</a> 
+</p>
+<p> Stochastic rainfall and temperature models for the Basque Country, Spain. Basque Country Government and Sener
+International (2011-13) </a> 
+</p>
+
+<p> Water Research Centre (WRc, UK) and Acea SpA (Italy), 2010.  Development of
+a spatial-temporal point process rainfall model for the Roma region.
+</p>
+<p> Scottish Water PLC (2008). Consultant to the Water Research Centre (WRc, UK) acting on behalf of 
+Scottish Water.
+Project description:  Simulation of multisite hourly rainfall data over the Glasgow catchment, Scotland; 
+infilling missing values, generating data at sites with no available historical series, generation
+of long multisite series for the purpose of hydraulic urban drainage design and minimising the 
+flood risks associated with heavy rainfall.   For use in a six-million pound project coordinated by the  
+<a href=http://www.scottishwater.co.uk/portal/page/portal/SWE_PGP_INVESTMENT/SWE_PGE_INVESTMENT/WHAT_MGSDP_INTRO/MGSDP_briefingnote1_spring08_web.pdf>Metropolitan Glasgow Strategic Drainage Partnership</a>.  </p>
+
+<p> Scottish Water PLC (2007). Consultant to the <a href=http://www.wrcplc.co.uk>WRc</a> (UK) acting on behalf of Scottish Water.
+Simulation of multisite hourly rainfall data over the Irvine catchment, Scotland,
+allowing for orographic effects due to altitude;  simulation of long spatial-temporal series for the purpose of 
+urban drainage design and analysis.  
+For use in hydrological studies  aimed at improving water quality in the Irvine catchment. 
+</p>
+
+<p> Thames Water PLC, UK (2004--6). Consultant to the WRc (UK) acting on behalf of Thames Water, London. 
+Project description:  Full spatial-temporal rainfall data simulation over London,
+allowing for orographic effects due to altitude;  simulation of long spatial-temporal series for the purpose of 
+urban drainage design and hydraulic systems analysis. For use in the  
+<a href=http://www.thameswater.co.uk/cps/rde/xchg/corp/hs.xsl/2833.htm>Thames Tideway Tunnels project</a>.
+Further details of the rainfall model can be found  
+<a href=http://www.sciencedirect.com/science?_ob=ArticleURL&_udi=B6V6C-4K7WTYF-2&_user=572227&_rdoc=1&_fmt=&_orig=search&_sort=d&view=c&_acct=C000029098&_version=1&_urlVersion=0&_userid=572227&md5=12053467c897ae02095ac87f8b7939dc>here</a>.
+</p>
+
+
+<p> Metrowater, Auckland City Integrated Catchment Study (2002-2006). Project description:  
+Generation of long records of rainfall time series (500 years) for the current climate and a future climate characterised
+by enhanced concentrations of greenhouse gases.  This was required for the Integrated Catchment Study (ICS)
+of Auckland's drainage network, a NZ$23.5 million project initiated by Metrowater in consultation with Auckland Regional Council.  
+Further details can be found <a href=http://cedb.asce.org/cgi/WWWdisplay.cgi?0705416>here</a>.  
+
+</p>
+
+<p> North Shore City Council (2003).  Consultant to North Shore City Council.  Project description: Extending
+current rainfall records for the design and upgrading of 
+the North Shore's drainage system;  simulation of future rainfall scenarios to prepare North Shore City for
+a change in climate.  Some details of the overall project can be found  
+<a href=http://www.mfe.govt.nz/publications/climate/case-study-wairau-catchment-aug04/html/page2.html>here</a>. 
+</p>
+
+<p> Water Research Centre, UK (2000).  Development of algorithms to improve the simulation of
+extreme rainfall events for urban drainage applications.  Algorithms implemented into
+the UK rainfall simulation package 
+(<a href=http://www.wrcplc.co.uk/stormpac/>Stormpac</a>). </p>
+
+<hr></hr>
+
+<h2><a id="software">Software</h2>
+
+<p> I have been involved in the development of the <a href=http://www.wrcplc.co.uk/>WRc</a> (Water Research Centre) 
+rainfall time series simulation software <a href=http://www.wrcplc.co.uk/stormpac/> Stormpac</a>.
+This is the UK's leading software for rainfall simulation for urban catchment studies and hydraulic systems analysis.  For more
+information refer to the <a href="http://sites.wrcplc.co.uk/stormpac/pdf/Stormpac4.1User_Guide.pdf"/>User Guide</a>. 
+</p>
+
+<p>I have a range of up-to-date rainfall simulation software which may 
+be available for consultancy work upon request.   
+
+<hr></hr>
+
+
+</body>
+
+</html>
+
+
+

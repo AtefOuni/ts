@@ -1,0 +1,1660 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!--[if lt IE 7]> <html class="no-js ie6 lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 lt-ie9"> <![endif]-->
+<!--[if IE 9]>    <html class="no-js ie9"> <![endif]-->
+<!--[if gt IE 9]><!--> <html xmlns="http://www.w3.org/1999/xhtml" class="no-js" lang="en" xml:lang="en"> <!--<![endif]-->
+<head>
+	<title>Introductory Time Series with R</title>
+	
+  
+
+	
+<!-- FA7 -->
+<!-- 5-10049-22-173882905-0 simpleVersion: 5-10049-22-173882905-0 -->
+<!-- SessionView: 5 EAST -->
+<!-- UserDependentView: EAST EAST -->
+<!-- user-id: no data -->
+<!-- SessionCountry: 198 TN -->
+<!-- X-country: TN -->
+<!-- xForwardHeader: 41.224.111.64 -->
+<!-- remoteAddr: 172.17.0.1 -->
+<!-- remoteOrForwardedIP: 41.224.111.64 -->
+<!-- URL: mathematics/probability/book/978-0-387-88697-8 -->
+<!-- first tracked URL:  no tracked url  -->
+<!-- second tracked URL: null -->
+<!-- Referrer-URL: http://staff.elena.aut.ac.nz/Paul-Cowpertwait/ts/ -->
+<!-- user-agent: Mozilla/5.0 (Windows NT 6.3; WOW64; rv:35.0) Gecko/20100101 Firefox/35.0 -->
+<!-- timestamp: Wed Mar 04 21:52:38 CET 2015 -->
+<!-- 4809c8746885efd65ffffb7d072da82fba95dc95 (R2015.03.1-03) -->
+
+	<link rel="icon" href="../../../favicon.ico" type="image/ico"/> 
+	<link rel="shortcut icon" href="../../../favicon.ico" type="image/x-icon"/>
+	<link rel="meta" href="/sgw/labels.rdf" type="application/rdf+xml" title="ICRA labels" />
+	<!-- end of taken from the actual meta-attributes on springer.com -->
+
+
+	<link href="/sgw/css/product_tab/tab_style.css" type="text/css"  rel="stylesheet" />
+     
+<script type="text/javascript" src="../../../resources/org.apache.wicket.markup.html.WicketEventReference/wicket-event.js"></script>
+<script type="text/javascript" src="../../../resources/org.apache.wicket.ajax.WicketAjaxReference/wicket-ajax.js"></script>
+<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+<meta name="description" content="Yearly global mean temperature and ocean levels, daily share prices, and the signals transmitted back to Earth by the Voyager space craft are all examples of sequential observations over time known as time series. This book gives ..."/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="Introductory Time Series with R, Probability Theory and Stochastic Processes, Statistical Theory and Methods"/>
+<meta name="audience" content="all"/>
+<meta name="distribution" content="global"/>
+<meta name="imagetoolbar" content="no"/>
+<meta property="og:title" content="Introductory Time Series with R"/>
+<meta property="og:site_name" content="springer.com"/>
+<meta property="og:type" content="book"/>
+<meta property="og:url" content="http://www.springer.com/mathematics/probability/book/978-0-387-88697-8"/>
+<meta property="og:image" content="https://images.springer.com/sgw/books/medium/9780387886978.jpg"/>
+<meta property="og:description" content="Yearly global mean temperature and ocean levels, daily share prices, and the signals transmitted back to Earth by the Voyager space craft are all examples of sequential observations over time known as time series. This book gives ..."/>
+<meta property="fb:admins" content="100001154999617"/>
+<meta name="baidu-site-verification" content="TmRbZpCsUoGaQLMq"/>
+<script type="text/javascript" id="trackedAffiliates"><!--/*--><![CDATA[/*><!--*/
+var trackedAffiliates = ['PPC.Google AdWords.EPR653-GoogleShopping_Product_UK', 'Banner.Banner RTB.3.EPR653.Sociomantic', 'PPC.Google AdWords.3.EPR653.West', 'PPC.BING.3.EPR632.DAL', 'PPC.BING.3.EPR632-DS-PPC-DAL', 'PDM.Soquero.3.EPR653', 'PPC.Google AdWords.3.EPR653.DAL', 'PPC.Google AdWords.3.EPR653.GMT', 'Affiliate.CommissionJunction.3.EPR868-EN', 'PDM.ChannelAdvisor.3.EPR653', 'PPC.Google AdWords.3.EPR653.SM', 'PPC.Google AdWords.3.EPR653.IT', 'Affiliate.Zanox.3.EPR868-DE', 'Banner.Banner RTB.3.EPR653.Criteo', 'PPC.BING.3.EPR632.West', 'PPC.Google AdWords.EPR653-GoogleShopping_Product_EN', 'PPC.Google AdWords.EPR653-GoogleShopping_Product_DE', 'PPC.Google AdWords.3.EPR653.FR', 'Affiliate.CommissionJunction.3.EPR868-DE', 'Affiliate.Zanox.3.EPR868-EN', 'PPC.Google AdWords.EPR653-GoogleShopping_Product_CH'];
+var generalCookieDomain = '.springer.com';
+
+/*-->]]>*/</script>
+
+<script type="text/javascript" defer="defer">if (window.location.href.match(/[-&#?]print_view=[^#&?-]/)) { window.setTimeout(function(){window.print();}, 3500);};</script>
+<!--  the following lines will be printed with a headercontributor  -->
+	
+		<script type="text/javascript" src="//cdn.optimizely.com/js/262426511.js"></script>
+	
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> 
+	<script type="text/javascript" src="/sgw/js/jquery-migrate-1.1.0.js"></script>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.min.js"></script>
+<script type="text/javascript" src="http://static.springer.com/sgw/js/jquery.customScroller-1.2.js?r=4809c8746885efd65ffffb7d072da82fba95dc95"></script>
+<script type="text/javascript" src="http://static.springer.com/assets/prod_min.js?r=4809c8746885efd65ffffb7d072da82fba95dc95"></script>
+<script type="text/javascript" src="/sgw/js/webtrekk/prod/webtrekk_v3.js?r=4809c8746885efd65ffffb7d072da82fba95dc95"></script>
+<script type="text/javascript" src="/sgw/js/webtrekk/webtrekk_social_media_tracking.js?r=4809c8746885efd65ffffb7d072da82fba95dc95"></script>
+<script type="text/javascript" src="/sgw/js/webtrekk/webtrekk_scrollposition.js?r=4809c8746885efd65ffffb7d072da82fba95dc95"></script>
+<link rel="stylesheet" type="text/css" href="http://static.springer.com/assets/prod_min.css?r=4809c8746885efd65ffffb7d072da82fba95dc95" />
+<!--[if IE 9]><link rel="stylesheet" type="text/css" href="http://static.springer.com/sgw/css/ie9.css?r=4809c8746885efd65ffffb7d072da82fba95dc95" /><![endif]-->
+<!--[if lte IE 8]><link rel="stylesheet" type="text/css" href="http://static.springer.com/sgw/css/ie8.css?r=4809c8746885efd65ffffb7d072da82fba95dc95" /><![endif]-->
+<!--[if lte IE 7]><link rel="stylesheet" type="text/css" href="http://static.springer.com/sgw/css/ie7.css?r=4809c8746885efd65ffffb7d072da82fba95dc95" /><![endif]-->
+<!--[if lte IE 6]><link rel="stylesheet" type="text/css" href="http://static.springer.com/sgw/css/ie6.css?r=4809c8746885efd65ffffb7d072da82fba95dc95" /><![endif]-->
+<link rel="stylesheet" type="text/css" href="http://static.springer.com/assets/prod_print_min.css?r=4809c8746885efd65ffffb7d072da82fba95dc95" media="print" />
+<!--[if lt IE 9]><link rel="stylesheet" type="text/css" href="http://static.springer.com/assets/prod_ielt9_sgw.css?r=4809c8746885efd65ffffb7d072da82fba95dc95" /><![endif]-->
+
+
+
+
+
+
+<script type="text/javascript" ><!--/*--><![CDATA[/*><!--*/
+Wicket.Event.add(window, "domready", function(event) { var wcall=wicketAjaxGet('../../../?wicket:interface=book_page173882905_292521:1:rightColumn:relatedProductsPortlet::IBehaviorListener:0:3&sgw:lastsgwid=5-10049-22-173882905-0&sgw:fallback=com.artnology.sgw.cda.product.book.BookPage',function() { }.bind(this),function() { }.bind(this), function() {if(Wicket.Browser.isIE()){return true;} else {return Wicket.$('id42') != null;}}.bind(this));;});
+/*-->]]>*/</script>
+
+
+
+
+
+
+
+<script type="text/javascript" id="CdaAjaxButton_blockAjaxButton"><!--/*--><![CDATA[/*><!--*/
+var blockAjaxButton = false;
+/*-->]]>*/</script>
+
+
+
+
+	<link rel="canonical" href="http://www.springer.com/mathematics/probability/book/978-0-387-88697-8"/>
+
+
+
+
+
+
+
+
+<script type="text/javascript" ><!--/*--><![CDATA[/*><!--*/
+Wicket.Event.add(window, "domready", function(event) { var wcall=wicketAjaxGet('../../../?wicket:interface=book_page173882905_292521:1:content:tabbar:panel:videoPanel::IBehaviorListener:0:3&sgw:lastsgwid=5-10049-22-173882905-0&sgw:fallback=com.artnology.sgw.cda.product.book.BookPage',function() { }.bind(this),function() { }.bind(this), function() {if(Wicket.Browser.isIE()){return true;} else {return Wicket.$('id43') != null;}}.bind(this));;});
+/*-->]]>*/</script>
+
+
+
+</head>
+<body>
+
+	
+	<script type="text/javascript">dataLayer = [
+{
+  "ePriceNet": "0",
+  "pageType": "product",
+  "pPriceGross": "49.95",
+  "topLevelCategory": "Mathematics",
+  "isbn": "9780387886978",
+  "productCategory": "Mathematics",
+  "ePriceGross": "41.64",
+  "eIsbn": "9780387886985",
+  "pIsbn": "9780387886978",
+  "pPriceNet": "49.95",
+  "subLevel1": "Probability",
+  "productId": "9780387886978"
+}
+];
+</script>
+	
+				<!-- Google Tag Manager -->
+				<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-38BW"
+				height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+				<script type="text/javascript">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+				new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+				j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+				'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+				})(window,document,'script','dataLayer','GTM-38BW');</script>
+				<!-- End Google Tag Manager -->
+
+
+<div id="wrapper" class="wrapper cda">
+	<a name="top"></a>
+	
+	
+	
+	
+	<header data-src="/_comp/header/gp/default">
+<script type="text/javascript">
+/*<![CDATA[*/
+
+var $buoop = {vs:{i:7,f:15,o:12,s:5},c:2};
+function $buo_f(){
+var e = document.createElement("script");
+e.setAttribute("type", "text/javascript");
+e.setAttribute("src", "/spcom/js/oldbrowser.js");
+document.body.appendChild(e);
+};
+try {document.addEventListener("DOMContentLoaded", $buo_f,false)}
+catch(e){window.attachEvent("onload", $buo_f)}
+
+/*]]>*/
+</script>
+<script type="text/javascript" src="/spcom/min/.4/header.prod.js" defer="defer"></script>
+<div id="header" role="banner">
+<a id="headerlogo" href="/" style="background-image: url(/spcom/sites/sgw/images/logo.png);"></a>
+<div class="panel-search">
+<form id="global-search" class="big-search" action="http://www.springer.com/?SGWID=0-102-24-0-0" method="get">
+<input type="hidden" name="SGWID" value="0-102-24-0-0">
+<input type="hidden" name="searchType" value="EASY_CDA">
+<div class="search-field">
+<input id="query" class="text focus placeholder" type="text" name="queryText" placeholder="Search"/>
+</div>
+<div>
+<input id="search" class="search-submit" type="submit"
+name="submit" />
+</div>
+<div id="search-options">
+<button class="pillow-btn-header open-search-options" title="Open search options" type="button" onclick="window.location.href=&#039;http://www.springer.com/?SGWID=0-102-13-0-0&#039;;return false;"></button>
+<div class="flyout-content"></div>
+</div>
+</form>
+</div>
+<button class="pillow-btn-header open-search" title="Open search">Search</button>
+<button class="pillow-btn-header open-menu" title="Open menu">Menu</button>
+<div class="panel-menu">
+<div id="cross-nav">
+<a class="headerbasket" href="http://www.springer.com/?SGWID=0-102-34-0-0">Cart</a>
+<div id="auth" class="flyout">
+<button class="flyout-caption">Login / Register</button>
+<div class="flyout-content">
+<ul>
+<li>
+
+<a class="loginButton returnURL" href="https://www.springer.com/?SGWID=0-102-25-0-0">Login / Register</a>
+
+</li>
+</ul>
+</div>
+</div>
+<div id="lang" class="flyout">
+<button class="flyout-caption">Global Website</button>
+<div class="flyout-content">
+<ul>
+<li>
+<a rel="nofollow" href="http://www.springer.com/?SGWID=0-102-2010-0-0" class="returnURL">Change</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="navwrapper">
+<nav>
+<ul id="global-nav">
+
+<li class="mainNavigationMark" id="mainNavigation0">
+<div class="nav-main">
+<a href="http://www.springer.com/gp/" class="mainNavigationLinkMark noSubnavigation" id="mainnav.home">Home</a>
+</div>
+
+
+</li>
+
+<li class="mainNavigationMark" id="mainNavigation1">
+<div class="nav-main">
+<a href="#" class="mainNavigationLinkMark" onclick="return false;">Subjects</a>
+</div>
+<div class="nav-sub">
+
+<ul class="firstList notLastSubList">
+
+<li>
+<a href="http://www.springer.com/astronomy?SGWID=0-123-0-0-0" id="mainnav.astronomy">Astronomy</a>
+</li>
+
+<li>
+<a href="http://www.springer.com/biomed?SGWID=0-124-0-0-0" id="mainnav.biomedical_sciences">Biomedical Sciences</a>
+</li>
+
+<li>
+<a href="http://www.springer.com/business+%26+management?SGWID=0-40517-0-0-0" id="mainnav.business_&amp;_management">Business &amp; Management</a>
+</li>
+
+<li>
+<a href="http://www.springer.com/chemistry?SGWID=0-135-0-0-0" id="mainnav.chemistry">Chemistry</a>
+</li>
+
+<li>
+<a href="http://www.springer.com/climate?SGWID=0-1755018-0-0-0" id="mainnav.climate">Climate</a>
+</li>
+
+<li>
+<a href="http://www.springer.com/computer?SGWID=0-146-0-0-0" id="mainnav.computer_science">Computer Science</a>
+</li>
+
+<li>
+<a href="http://www.springer.com/earth+sciences+and+geography?SGWID=0-10006-0-0-0" id="mainnav.earth_sciences_&amp;_geography">Earth Sciences &amp; Geography</a>
+</li>
+
+<li>
+<a href="http://www.springer.com/economics?SGWID=0-165-0-0-0" id="mainnav.economics">Economics</a>
+</li>
+
+</ul><ul class="notLastSubList">
+
+<li>
+<a href="http://www.springer.com/education+%26+language?SGWID=0-40406-0-0-0" id="mainnav.education_&amp;_language">Education &amp; Language</a>
+</li>
+
+<li>
+<a href="http://www.springer.com/energy?SGWID=0-1719213-0-0-0" id="mainnav.energy">Energy</a>
+</li>
+
+<li>
+<a href="http://www.springer.com/engineering?SGWID=0-175-0-0-0" id="mainnav.engineering">Engineering</a>
+</li>
+
+<li>
+<a href="http://www.springer.com/environment?SGWID=0-198-0-0-0" id="mainnav.environmental_sciences_">Environmental Sciences </a>
+</li>
+
+<li>
+<a href="http://www.springer.com/food+science?SGWID=0-40723-0-0-0" id="mainnav.food_science_&amp;_nutrition">Food Science &amp; Nutrition</a>
+</li>
+
+<li>
+<a href="http://www.springer.com/law?SGWID=0-10017-0-0-0" id="mainnav.law">Law</a>
+</li>
+
+<li>
+<a href="http://www.springer.com/life+sciences?SGWID=0-10027-0-0-0" id="mainnav.life_sciences">Life Sciences</a>
+</li>
+
+<li>
+<a href="http://www.springer.com/materials?SGWID=0-10041-0-0-0" id="mainnav.materials">Materials</a>
+</li>
+
+</ul><ul class="notLastSubList">
+
+<li>
+<a href="http://www.springer.com/mathematics?SGWID=0-10042-0-0-0" id="mainnav.mathematics">Mathematics</a>
+</li>
+
+<li>
+<a href="http://www.springer.com/medicine?SGWID=0-10054-0-0-0" id="mainnav.medicine">Medicine</a>
+</li>
+
+<li>
+<a href="http://www.springer.com/philosophy?SGWID=0-40385-0-0-0" id="mainnav.philosophy">Philosophy</a>
+</li>
+
+<li>
+<a href="http://www.springer.com/physics?SGWID=0-10100-0-0-0" id="mainnav.physics">Physics</a>
+</li>
+
+<li>
+<a href="http://www.springer.com/popular?SGWID=0-10122-0-0-0" id="mainnav.popular_science">Popular Science</a>
+</li>
+
+<li>
+<a href="http://www.springer.com/psychology?SGWID=0-10126-0-0-0" id="mainnav.psychology">Psychology</a>
+</li>
+
+<li>
+<a href="http://www.springer.com/public+health?SGWID=0-40467-0-0-0" id="mainnav.public_health">Public Health</a>
+</li>
+
+<li>
+<a href="http://www.springer.com/social+sciences?SGWID=0-40384-0-0-0" id="mainnav.social_sciences">Social Sciences</a>
+</li>
+
+</ul><ul class="lastList">
+
+<li>
+<a href="http://www.springer.com/statistics?SGWID=0-10128-0-0-0" id="mainnav.statistics">Statistics</a>
+</li>
+
+<li>
+<a href="http://www.springer.com/water?SGWID=0-1755013-0-0-0" id="mainnav.water">Water</a>
+</li>
+
+</ul>
+
+</div>
+
+</li>
+
+<li class="mainNavigationMark" id="mainNavigation2">
+<div class="nav-main">
+<a href="#" class="mainNavigationLinkMark" onclick="return false;">My Springer</a>
+</div>
+<div class="nav-sub">
+
+<ul class="firstList lastList">
+
+<li>
+<a href="https://www.springer.com/my+springer?SGWID=5-1716000-26-0-0" id="mainnav.manage_account">Manage Account</a>
+</li>
+
+<li>
+<a href="https://www.springer.com/?SGWID=5-102-3120-0-0" id="mainnav.my_bookshelf">My Bookshelf</a>
+</li>
+
+<li>
+<a href="http://www.springer.com/alert?SGWID=0-103-0-0-0" id="mainnav.manage_alerts">Manage Alerts</a>
+</li>
+
+<li>
+<a href="http://www.springer.com/my+springer/article+tracking?SGWID=0-1716011-0-0-0" id="mainnav.article_tracking">Article Tracking</a>
+</li>
+
+<li>
+<a href="http://www.springer.com/gp/myspringer/book-publications" id="mainnav.book_tracking">Book Tracking</a>
+</li>
+
+</ul>
+
+</div>
+
+</li>
+
+<li class="mainNavigationMark" id="mainNavigation3">
+<div class="nav-main">
+<a href="#" class="mainNavigationLinkMark" onclick="return false;">Services</a>
+</div>
+<div class="nav-sub">
+
+<ul class="firstList">
+
+<li>
+<a href="http://www.springer.com/gp/advertisers" id="mainnav.advertisers">Advertisers</a>
+</li>
+
+<li>
+<a href="http://www.springer.com/gp/authors-editors" id="mainnav.authors_&amp;_editors">Authors &amp; Editors</a>
+</li>
+
+<li>
+<a href="http://www.springer.com/gp/booksellers/" id="mainnav.booksellers">Booksellers</a>
+</li>
+
+<li>
+<a href="http://www.springer.com/gp/reviewers" id="mainnav.book_reviewers">Book Reviewers</a>
+</li>
+
+<li>
+<a href="http://www.springer.com/gp/instructors" id="mainnav.instructors">Instructors</a>
+</li>
+
+<li>
+<a href="http://www.springer.com/gp/about-springer/media" id="mainnav.journalists">Journalists</a>
+</li>
+
+</ul>
+
+<ul class="lastList">
+
+<li>
+<a href="http://www.springer.com/gp/librarians" id="mainnav.librarians">Librarians</a>
+</li>
+
+<li>
+<a href="http://www.springer.com/gp/rights-permissions" id="mainnav.rights_&amp;_permissions">Rights &amp; Permissions</a>
+</li>
+
+<li>
+<a href="http://www.springer.com/gp/partners" id="mainnav.societies_&amp;_publishing_partners">Societies &amp; Publishing Partners</a>
+</li>
+
+<li>
+<a href="http://www.springer.com/gp/subscriptions" id="mainnav.subscription_agencies">Subscription Agencies</a>
+</li>
+
+<li>
+<a href="http://www.springer.com/gp/help" id="mainnav.help_&amp;_contact">Help &amp; Contact</a>
+</li>
+
+<li>
+<a href="http://www.springer.com/gp/open-access" id="mainnav.open_access_&amp;_springer">Open Access &amp; Springer</a>
+</li>
+
+</ul>
+
+</div>
+
+</li>
+
+<li class="mainNavigationMark" id="mainNavigation4">
+<div class="nav-main">
+<a href="#" class="mainNavigationLinkMark" onclick="return false;">Products</a>
+</div>
+<div class="nav-sub">
+
+<ul class="firstList lastList">
+
+<li>
+<a href="http://www.springer.com/gp/products/journals" id="mainnav.journals">Journals</a>
+</li>
+
+<li>
+<a href="http://www.springer.com/gp/products/books" id="mainnav.books">Books</a>
+</li>
+
+<li>
+<a href="http://www.springer.com/gp/products/springerlink" id="mainnav.springerlink">SpringerLink</a>
+</li>
+
+<li>
+<a href="http://www.springer.com/gp/products/springer-rnd" id="mainnav.springer_for_r&amp;d">Springer for R&amp;D</a>
+</li>
+
+<li>
+<a href="http://www.springer.com/gp/products/hospital-health-products" id="mainnav.springer_for_hospitals_&amp;_health">Springer for Hospitals &amp; Health</a>
+</li>
+
+<li>
+<a href="http://www.springer.com/gp/products/databases-and-software" id="mainnav.databases_and_software">Databases and Software</a>
+</li>
+
+</ul>
+
+</div>
+
+</li>
+
+<li class="mainNavigationMark" id="mainNavigation5">
+<div class="nav-main">
+<a href="http://www.springer.com/shop" class="mainNavigationLinkMark noSubnavigation" id="mainnav.springer_shop">Springer Shop</a>
+</div>
+
+
+</li>
+
+<li class="mainNavigationMark" id="mainNavigation6">
+<div class="nav-main">
+<a href="http://www.springer.com/gp/about-springer" class="mainNavigationLinkMark noSubnavigation" id="mainnav.about_us">About us</a>
+</div>
+
+
+</li>
+
+</ul>
+</nav>
+</div>
+</div>
+</div>
+</header>
+
+
+
+<!-- START of BREADCRUMB NAVIGATION -->
+	<div>
+	<div class="showOnlyOnPrint">
+		<div class="printHead">
+			<div class="floatLeft leftMargin5px"><img src="/sgw/img/print_springer_logo.png" alt="Logo - springer" /></div>
+			<div class="floatRight"><img src="/sgw/img/print_springer_slogan.png" alt="Slogan - springer" /></div>
+		</div>
+		<div class="hrDotted"><hr/></div>
+		<div class="printBreadcrumb">
+			
+				
+				<span>Mathematics</span>
+			
+				 - 
+				<span>Probability Theory and Stochastic Processes</span>
+			
+			 | <span>Introductory Time Series with R</span>
+		</div>
+		<div class="hrDotted"><hr/></div>
+	</div>
+
+	<div class="breadCrumbNavigation">
+		<h2 class="currentCategory">Probability Theory and Stochastic Processes</h2>
+		
+		<div class="breadCrumbPathContainer">
+			<div class="breadCrumbPath">
+				
+					<span><a href="http://www.springer.com/?SGWID=5-102-0-0-0" class="firstItem">Home</a></span>
+				
+					<span>&gt; <a href="http://www.springer.com/mathematics?SGWID=0-10042-0-0-0">Mathematics</a></span>
+				
+					<span>&gt; <a href="http://www.springer.com/mathematics/probability?SGWID=0-10049-0-0-0">Probability Theory and Stochastic Processes</a></span>
+				
+			</div>
+		</div>
+		
+	</div>
+	
+</div>
+<!-- END of BREADCRUMB NAVIGATION -->
+<!-- START of CONTENT -->
+	
+		<div class="body">
+			<!-- START of LEFT COLUMN -->
+			<div class="colLeft">
+				
+	
+
+	<!-- START of LEFT COLUMN -->
+	<div class="whiteBox bottomMargin14px">
+		<div class="moreActions">
+	
+	<ul class="secNav">
+		<li class="secNav">
+	<a class="secNav" href="#" onclick="return false;">Subdisciplines</a>
+	<a class="secNavHover displayNone" href="#" onclick="return false;">Subdisciplines</a>
+	<div class="secSubNav displayNone">
+		<div class="secSubNavTitle">
+			<span class="title dGrey">Choose your discipline:</span>
+			<a href="#" class="dGrey noMargin" onclick="goURL(&#34;http://www.springer.com/mat&#34;+&#34;hematics?SGWID=0-10042-0-0-0&#34;,this);">Mathematics</a><br />
+			<img src="/sgw/img/x.gif" class="secSubNav" />
+		</div>
+		<ul class="firstList"><li><a href="#" onclick="goURL(&#34;http://www.springer.com/mathema&#34;+&#34;tics/algebra?SGWID=0-10043-0-0-0&#34;,this);">Algebra</a></li><li><a href="#" onclick="goURL(&#34;http://www.springer.com/mathemat&#34;+&#34;ics/analysis?SGWID=0-10044-0-0-0&#34;,this);">Analysis</a></li><li><a href="#" onclick="goURL(&#34;http://www.springer.com/mathematic&#34;+&#34;s/applications?SGWID=0-10051-0-0-0&#34;,this);">Applications</a></li><li><a href="#" onclick="goURL(&#34;http://www.springer.com/mathematics/computatio&#34;+&#34;nal+science+%26+engineering?SGWID=0-10045-0-0-0&#34;,this);">Computational Science &amp; Engineering</a></li><li><a href="#" onclick="goURL(&#34;http://www.springer.com/mathematics/&#34;+&#34;dynamical+systems?SGWID=0-10053-0-0-0&#34;,this);">Dynamical Systems &amp; Differential Equations</a></li><li><a href="#" onclick="goURL(&#34;http://www.springer.com/mathemat&#34;+&#34;ics/geometry?SGWID=0-10046-0-0-0&#34;,this);">Geometry &amp; Topology</a></li></ul><ul><li><a href="#" onclick="goURL(&#34;http://www.springer.com/mathematics/his&#34;+&#34;tory+of+mathematics?SGWID=0-169802-0-0-0&#34;,this);">History of Mathematical Sciences</a></li><li><a href="#" onclick="goURL(&#34;http://www.springer.com/mathematics/lectur&#34;+&#34;e+notes+in+mathematics?SGWID=0-168502-0-0-0&#34;,this);">Lecture Notes in Mathematics</a></li><li><a href="#" onclick="goURL(&#34;http://www.springer.com/mathematics/ma&#34;+&#34;thematical+biology?SGWID=0-10047-0-0-0&#34;,this);">Mathematical and Computational Biology</a></li><li><a href="#" onclick="goURL(&#34;http://www.springer.com/mathema&#34;+&#34;tics/physics?SGWID=0-40010-0-0-0&#34;,this);">Mathematical Physics</a></li><li><a href="#" onclick="goURL(&#34;http://www.springer.com/mathematics/mat&#34;+&#34;hematics+education?SGWID=0-1720213-0-0-0&#34;,this);">Mathematics Education</a></li><li><a href="#" onclick="goURL(&#34;http://www.springer.com/mathema&#34;+&#34;tics/numbers?SGWID=0-10048-0-0-0&#34;,this);">Number Theory and Discrete Mathematics</a></li></ul><ul><li><a href="#" onclick="goURL(&#34;http://www.springer.com/mathemati&#34;+&#34;cs/probability?SGWID=0-10049-0-0-0&#34;,this);">Probability Theory and Stochastic Processes</a></li><li><a href="#" onclick="goURL(&#34;http://www.springer.com/mathematics/qu&#34;+&#34;antitative+finance?SGWID=0-10050-0-0-0&#34;,this);">Quantitative Finance</a></li></ul>
+	</div>
+</li>
+		
+			<li class="secNav">
+	<a class="secNav" href="#" onclick="return false;">Journals</a>
+	<a class="secNavHover displayNone" href="#" onclick="return false;">Journals</a>
+	<div class="secSubNav displayNone">
+		<div class="secSubNavTitle">
+			<span class="title dGrey">Browse Journals in:</span>
+			<br />
+			<img src="/sgw/img/x.gif" class="secSubNav" />
+		</div>
+		<ul class="firstList"><li><a href="#" onclick="goURL(&#34;http://www.springer.com/mathematics&#34;+&#34;/algebra?SGWID=0-10043-12-1009060-0&#34;,this);">Algebra</a></li><li><a href="#" onclick="goURL(&#34;http://www.springer.com/mathematics&#34;+&#34;/analysis?SGWID=0-10044-12-1009062-0&#34;,this);">Analysis</a></li><li><a href="#" onclick="goURL(&#34;http://www.springer.com/mathematics/a&#34;+&#34;pplications?SGWID=0-10051-12-1009064-0&#34;,this);">Applications</a></li><li><a href="#" onclick="goURL(&#34;http://www.springer.com/mathematics/computational+&#34;+&#34;science+%26+engineering?SGWID=0-10045-12-1009066-0&#34;,this);">Computational Science &amp; Engineering</a></li><li><a href="#" onclick="goURL(&#34;http://www.springer.com/mathematics/dyna&#34;+&#34;mical+systems?SGWID=0-10053-12-1009054-0&#34;,this);">Dynamical Systems &amp; Differential Equations</a></li><li><a href="#" onclick="goURL(&#34;http://www.springer.com/mathematics&#34;+&#34;/geometry?SGWID=0-10046-12-1009068-0&#34;,this);">Geometry &amp; Topology</a></li><li><a href="#" onclick="goURL(&#34;http://www.springer.com/mathematics/history&#34;+&#34;+of+mathematics?SGWID=0-169802-12-1009072-0&#34;,this);">History of Mathematics</a></li></ul><ul><li><a href="#" onclick="goURL(&#34;http://www.springer.com/mathematics/mathe&#34;+&#34;matical+biology?SGWID=0-10047-12-1009070-0&#34;,this);">Mathematical and Computational Biology</a></li><li><a href="#" onclick="goURL(&#34;http://www.springer.com/education+%26+language/&#34;+&#34;mathematics+education?SGWID=0-40414-12-134498-0&#34;,this);">Mathematics Education</a></li><li><a href="#" onclick="goURL(&#34;http://www.springer.com/mathematics&#34;+&#34;/physics?SGWID=0-40010-12-1008750-0&#34;,this);">Mathematical Physics</a></li><li><a href="#" onclick="goURL(&#34;http://www.springer.com/mathematics&#34;+&#34;/numbers?SGWID=0-10048-12-1009081-0&#34;,this);">Number Theory and Discrete Mathematics</a></li><li><a href="#" onclick="goURL(&#34;http://www.springer.com/mathematics/p&#34;+&#34;robability?SGWID=0-10049-12-1009087-0&#34;,this);">Probability Theory and Stochastic Processes</a></li><li><a href="#" onclick="goURL(&#34;http://www.springer.com/mathematics/quant&#34;+&#34;itative+finance?SGWID=0-10050-12-1009089-0&#34;,this);">Quantitative Finance</a></li></ul><ul><li><a href="#" onclick="goURL(&#34;http://www.springer.com/birkhauser/m&#34;+&#34;athematics?SGWID=0-40292-12-115408-0&#34;,this);">Birkhäuser Journals</a></li><li><a href="#" onclick="goURL(&#34;http://www.springer.com/mathematic&#34;+&#34;s/math+journals?SGWID=0-40012-0-0-0&#34;,this);">All Journals in Mathematics</a></li></ul>
+	</div>
+</li>
+		
+			<li class="secNav">
+	<a class="secNav" href="#" onclick="return false;">Books</a>
+	<a class="secNavHover displayNone" href="#" onclick="return false;">Books</a>
+	<div class="secSubNav displayNone">
+		<div class="secSubNavTitle">
+			<span class="title dGrey">Browse Books in:</span>
+			<br />
+			<img src="/sgw/img/x.gif" class="secSubNav" />
+		</div>
+		<ul class="firstList"><li><a href="#" onclick="goURL(&#34;http://www.springer.com/mathematic&#34;+&#34;s/algebra?SGWID=0-10043-12-73949-0&#34;,this);">Algebra</a></li><li><a href="#" onclick="goURL(&#34;http://www.springer.com/mathematic&#34;+&#34;s/analysis?SGWID=0-10044-12-69053-0&#34;,this);">Analysis</a></li><li><a href="#" onclick="goURL(&#34;http://www.springer.com/mathematics/&#34;+&#34;applications?SGWID=0-10051-12-74087-0&#34;,this);">Applications</a></li><li><a href="#" onclick="goURL(&#34;http://www.springer.com/mathematics/computational&#34;+&#34;+science+%26+engineering?SGWID=0-10045-12-69085-0&#34;,this);">Computational Science &amp; Engineering</a></li><li><a href="#" onclick="goURL(&#34;http://www.springer.com/mathematics/dyn&#34;+&#34;amical+systems?SGWID=0-10053-12-69222-0&#34;,this);">Dynamical Systems &amp; Differential Equations</a></li><li><a href="#" onclick="goURL(&#34;http://www.springer.com/mathematic&#34;+&#34;s/geometry?SGWID=0-10046-12-69210-0&#34;,this);">Geometry &amp; Topology</a></li></ul><ul><li><a href="#" onclick="goURL(&#34;http://www.springer.com/mathematics/histor&#34;+&#34;y+of+mathematics?SGWID=0-169802-12-567699-0&#34;,this);">History of Mathematical Sciences</a></li><li><a href="#" onclick="goURL(&#34;http://www.springer.com/mathematics/math&#34;+&#34;ematical+biology?SGWID=0-10047-12-74080-0&#34;,this);">Mathematical and Computational Biology</a></li><li><a href="#" onclick="goURL(&#34;http://www.springer.com/mathematic&#34;+&#34;s/physics?SGWID=0-40010-12-94522-0&#34;,this);">Mathematical Physics</a></li><li><a href="#" onclick="goURL(&#34;http://www.springer.com/education+%26+language/&#34;+&#34;mathematics+education?SGWID=0-40414-12-471599-0&#34;,this);">Mathematics Education</a></li><li><a href="#" onclick="goURL(&#34;http://www.springer.com/mathematic&#34;+&#34;s/numbers?SGWID=0-10048-12-69432-0&#34;,this);">Number Theory and Discrete Mathematics</a></li></ul><ul><li><a href="#" onclick="goURL(&#34;http://www.springer.com/mathematics/&#34;+&#34;probability?SGWID=0-10049-12-69438-0&#34;,this);">Probability Theory and Stochastic Processes</a></li><li><a href="#" onclick="goURL(&#34;http://www.springer.com/mathematics/quan&#34;+&#34;titative+finance?SGWID=0-10050-12-69450-0&#34;,this);">Quantitative Finance</a></li></ul>
+	</div>
+</li>
+		
+			<li class="secNav">
+	<a class="secNav" href="#" onclick="return false;">Series</a>
+	<a class="secNavHover displayNone" href="#" onclick="return false;">Series</a>
+	<div class="secSubNav displayNone">
+		<div class="secSubNavTitle">
+			<span class="title dGrey">Browse Series in:</span>
+			<br />
+			<img src="/sgw/img/x.gif" class="secSubNav" />
+		</div>
+		<ul class="firstList"><li><a href="#" onclick="goURL(&#34;http://www.springer.com/mathem&#34;+&#34;atics?SGWID=0-10042-12-69518-0&#34;,this);">Mathematics A-L</a></li><li><a href="#" onclick="goURL(&#34;http://www.springer.com/mathem&#34;+&#34;atics?SGWID=0-10042-12-94476-0&#34;,this);">Mathematics M-Z</a></li><li><a href="#" onclick="goURL(&#34;http://www.springer.com/education+%26+language/&#34;+&#34;mathematics+education?SGWID=0-40414-12-660811-0&#34;,this);">Mathematics Education</a></li></ul>
+	</div>
+</li>
+		
+			<li class="secNav">
+	<a class="secNav" href="#" onclick="return false;">Textbooks</a>
+	<a class="secNavHover displayNone" href="#" onclick="return false;">Textbooks</a>
+	<div class="secSubNav displayNone">
+		<div class="secSubNavTitle">
+			<span class="title dGrey">Browse Textbooks in:</span>
+			<br />
+			<img src="/sgw/img/x.gif" class="secSubNav" />
+		</div>
+		<ul class="firstList"><li><a href="#" onclick="goURL(&#34;http://www.springer.com/mathematics/textbo&#34;+&#34;ok+mathematics+2?SGWID=0-40011-12-628599-0&#34;,this);">Algebra</a></li><li><a href="#" onclick="goURL(&#34;http://www.springer.com/mathematics/textbo&#34;+&#34;ok+mathematics+2?SGWID=0-40011-12-628799-0&#34;,this);">Analysis</a></li><li><a href="#" onclick="goURL(&#34;http://www.springer.com/mathematics/textbo&#34;+&#34;ok+mathematics+2?SGWID=0-40011-12-628800-0&#34;,this);">Computational Science and Engineering</a></li><li><a href="#" onclick="goURL(&#34;http://www.springer.com/mathematics/textbo&#34;+&#34;ok+mathematics+2?SGWID=0-40011-12-628801-0&#34;,this);">Dynamical Systems &amp; Differential Equations</a></li><li><a href="#" onclick="goURL(&#34;http://www.springer.com/mathematics/textbo&#34;+&#34;ok+mathematics+2?SGWID=0-40011-12-628802-0&#34;,this);">Geometry &amp; Topology</a></li><li><a href="#" onclick="goURL(&#34;http://www.springer.com/mathematics/textbo&#34;+&#34;ok+mathematics+2?SGWID=0-40011-12-628803-0&#34;,this);">Mathematical Biology</a></li></ul><ul><li><a href="#" onclick="goURL(&#34;http://www.springer.com/mathematics/textbo&#34;+&#34;ok+mathematics+2?SGWID=0-40011-12-628804-0&#34;,this);">Number Theory &amp; Combinatorics</a></li><li><a href="#" onclick="goURL(&#34;http://www.springer.com/mathematics/textbo&#34;+&#34;ok+mathematics+2?SGWID=0-40011-12-628805-0&#34;,this);">Probability Theory</a></li><li><a href="#" onclick="goURL(&#34;http://www.springer.com/mathematics/textbo&#34;+&#34;ok+mathematics+2?SGWID=0-40011-12-628806-0&#34;,this);">Quantitative Finance</a></li></ul>
+	</div>
+</li>
+		
+			<li class="secNav">
+	<a class="secNav" href="#" onclick="goURL(&#34;http://www.springer.com/mathematics/&#34;+&#34;reference+works?SGWID=0-176404-0-0-0&#34;,this);">Reference Works</a>
+	
+	
+</li>
+		
+	</ul>
+
+	<ul class="moreActionsList continousDotLine">
+		
+		
+		
+		
+		<li class="moreActionsListItem" id="openRecommendLayer">
+			<a class="btnRecommend" id="id44" href="#" onclick="var wcall=wicketAjaxGet('../../../?wicket:interface=book_page173882905_292521:1:content:topNavigationPageTools:moreActionsList:recommendButton:recommendLink::IBehaviorListener:1:3&amp;sgw:lastsgwid=5-10049-22-173882905-0&amp;sgw:fallback=com.artnology.sgw.cda.product.book.BookPage',function() { }.bind(this),function() { }.bind(this), function() {return !(isElementActive(document.getElementById('openRecommendLayer'))); return Wicket.$('id44') != null;}.bind(this)); return false;" title="Recommend to others"></a>
+			<div class="recommendLayer" id="id45">
+	<div class="recommendLayerContainer">
+		<div class="containerBridge"></div>
+		<a class="link btnToCloseLayer" href="#" id="id46" onclick="var wcall=wicketAjaxGet('../../../?wicket:interface=book_page173882905_292521:1:content:topNavigationPageTools:moreActionsList:recommendButton:productRecommendPanel:close::IBehaviorListener:0:3&amp;sgw:lastsgwid=5-10049-22-173882905-0&amp;sgw:fallback=com.artnology.sgw.cda.product.book.BookPage',function() { }.bind(this),function() { }.bind(this), function() {return Wicket.$('id46') != null;}.bind(this));return !wcall;"><span class="hideMe">Close</span></a>
+				
+		
+	</div>
+</div>
+		</li>
+		<li class="moreActionsListItem closeOnMouseOut" id="openShareLayer">
+
+	<a href="#" class="btnShare" title="Share this site"></a>
+	<div class="shareLayer">
+		<div class="shareLayerContainer">
+			<div class="containerBridge"></div>
+			<ul class="shareLayerList firstList">
+				<li class="shareLayerListItem"><a href="/mathematics/probability/rssfeed?5-10049-820-0-0" class="btnRSSShare" onclick="window.open('/mathematics/probability/rssfeed?5-10049-820-0-0');"><span>RSS</span></a></li>
+				<li class="shareLayerListItem"><a 
+					href="http://reddit.com/"
+					onclick="webtrackingTriggerPageElementTag('Reddit', 'Social Bookmarks', true, false, '_');window.open('http://reddit.com/submit?url='+encodeURIComponent(location.href)+'&amp;title='+encodeURIComponent(document.title));return false;"
+					rel="external nofollow" 
+					class="btnReddit"><span>Reddit</span></a></li>
+				<li class="shareLayerListItem"><a 
+					href="http://www.technorati.com/"
+					onclick="webtrackingTriggerPageElementTag('Technorati', 'Social Bookmarks', true, false, '_');window.open('http://technorati.com/faves?add='+encodeURIComponent(location.href)+'&amp;tag=');return false;"
+					rel="external nofollow" 
+					class="btnTechnocrati"><span>Technorati</span></a></li>
+				<li class="shareLayerListItem"><a 
+					href="#" 
+					onclick="window.print(); return false;" 
+					class="btnPrintShare"><span>Print this site</span></a></li>
+			</ul>
+			<ul class="shareLayerList lastList">
+				<li class="shareLayerListItem"><a 
+					href="http://del.icio.us/"
+					onclick="webtrackingTriggerPageElementTag('Delicious', 'Social Bookmarks', true, false, '_');window.open('http://del.icio.us/post?v=2&amp;url='+encodeURIComponent(location.href)+'&amp;notes=&amp;tags=&amp;title='+encodeURIComponent(document.title));return false;"
+					rel="external nofollow" 
+					class="btnDelicious"><span>Delicious</span></a></li>
+				<li class="shareLayerListItem"><a 
+					href="http://digg.com/" 
+					onclick="webtrackingTriggerPageElementTag('Digg', 'Social Bookmarks', true, false, '_');window.open('http://digg.com/submit?phase=2&amp;url='+encodeURIComponent(location.href)+'&amp;bodytext=&amp;tags=&amp;title='+encodeURIComponent(document.title));return false;"
+					rel="external nofollow" 
+					class="btnDigg"><span>Digg</span></a></li>
+				<li class="shareLayerListItem"><a 
+					href="http://www.citeulike.org"
+					onclick="window.open('http://www.citeulike.org/posturl?url='+encodeURIComponent(location.href)+'&amp;title='+encodeURIComponent(document.title));return false;" 
+					rel="external nofollow" 
+					class="btnCiteULike"><span>CiteULike</span></a></li>
+			</ul>
+			<div class="clear"></div>
+		</div><!-- .productShareLayerContainer -->
+	</div><!-- .productShareLayer -->
+</li>
+	</ul>
+</div>
+		<div class="productContainer clearfix">
+	<div class="floatLeft productGraphicContainer">
+		<div class="productGraphic noMargin">
+			<a rel="external nofollow" class="coverImageLink" id="id47" href="#" onclick="var wcall=wicketAjaxGet('../../../?wicket:interface=book_page173882905_292521:1:content:basic:coverLink::IBehaviorListener:0:3&amp;sgw:lastsgwid=5-10049-22-173882905-0&amp;sgw:fallback=com.artnology.sgw.cda.product.book.BookPage',function() { }.bind(this),function() { }.bind(this), function() {return Wicket.$('id47') != null;}.bind(this));return !wcall;" onmousedown="wt.sendinfo({linkId:'look_inside'});">
+				<img src="https://images.springer.com/sgw/books/medium/9780387886978.jpg" alt="Introductory Time Series with R" width="128"/>
+				<span class="look-inside-badge">
+		            Free <br/> Preview
+		        </span>
+			</a>
+		</div>
+		
+		<br/>
+		
+		
+		<div id="id48" style="display:none"></div>
+		
+	</div>
+	<div class="productDescriptionContainer">
+		<div class="subcolumns">
+			<div class="floatBox">
+				
+				
+	<h1 class="headline">Introductory Time Series with R</h1>
+	
+		<div class="productHasReferrer productDescription">
+			
+			<div>
+				
+	<p>
+		<span>Series</span>: <a class="greyRaquoLink" href="http://www.springer.com/series/6991"><span>Use R!</span></a>
+	</p>
+
+				
+				
+			</div>
+			<div>
+				<p><strong>Cowpertwait</strong>, Paul S.P., <strong>Metcalfe</strong>, Andrew V.</p>
+				
+				
+			</div>
+			<div>
+				
+				<p>2009, XVI, 256 p.</p>
+			</div>
+			
+			
+		</div>
+	
+	
+	
+
+				<div class="clear"></div>
+				<div class="topMargin4px">
+					
+						<span class="fontWeightBold">Available Formats:</span>
+					
+					<div class="floatBox"></div>
+					<div>
+    <div class="dynamicContentAccordion noCollapse accordion">
+	  	
+	  		<div class="accordionSectionOpen accordionHead">
+	  			
+	<div class="floatLeft mediumType">
+		<span>eBook</span>
+	</div>
+	<div class="itemInformationToolTip">
+		<span class="itemInformationToolTipPoint">Information</span>
+		<div class="itemInformationToolBoxOuter">
+			<div class="itemInformationToolBoxInner">
+				<div><p>Springer eBooks may be purchased by end-customers only and are sold without copy protection (DRM free). Instead, all eBooks include personalized watermarks. This means you can read the Springer eBooks across numerous devices such as Laptops, eReaders, and tablets.</p>
+
+<p>You can pay for Springer eBooks with <b>Visa, Mastercard, American Express or Paypal.</b></p>
+
+<p>After the purchase you can directly download the eBook file or read it online in our Springer eBook Reader. Furthermore your eBook will be stored in your MySpringer account. So you can always re-download your eBooks.</p></div>
+			</div>
+		</div>
+	</div>
+
+	  			<span class="displayNone flapName wtdata_title">&nbsp;</span>
+<!-- 		  		<div class="buttons"> -->
+<!-- 					<a href="#" class="customBtn shoppingCart rightMargin7px" wicket:id="addToBasketLink"></a> -->
+<!-- 					<a href="#" class="customBtn markedItems" wicket:id="addToMarkedItemsLink"></a> -->
+<!-- 				</div> -->
+	  			<div class="price" id="id49">
+  
+  
+  <span>41,64&nbsp;&#8364;</span>
+  
+
+</div>
+	  		</div>
+	  		<div class="accordionBody displayNone clearfixAccordion">
+	
+		<div class="desc">
+			
+				<div class="fontWeightBold">
+</div>
+				<div class="clear"></div>
+			
+			<p>
+				<span class="blue" id="id4a">
+	(gross)
+</span>
+				<span class="blue">  price for Tunisia</span>
+				<br/>
+				
+			</p>
+			<p class="info">ISBN 978-0-387-88698-5</p>
+			
+				<p class="info" id="id4b">
+  
+  <a href="http://link.springer.com/978-0-387-88698-5"></a>
+   
+</p>
+			
+			<p class="info" id="id4c">
+  digitally watermarked, no DRM
+</p>
+			
+				<p class="info " >Included Format:<span id="id4d">
+  PDF
+</span></p>
+			
+			<p class="info" id="id4e">
+  download immediately after purchase
+</p>
+			
+			
+			
+			
+			
+			<hr />
+		  
+			<p><a href="http://www.springer.com/help?SGWID=0-114-12-965704-0" class="addToMarkedItems">learn more about Springer eBooks</a></p> 
+			<p><a href="#" id="id4f" onclick="var wcall=wicketAjaxGet('../../../?wicket:interface=book_page173882905_292521:1:content:basic:renditionContainer:renditions:accordion:list:0:contentPanel:fragmentContainer:addToMarkedItemsLink::IBehaviorListener:0:3&amp;sgw:lastsgwid=5-10049-22-173882905-0&amp;sgw:fallback=com.artnology.sgw.cda.product.book.BookPage',function() { }.bind(this),function() { }.bind(this), function() {return Wicket.$('id4f') != null;}.bind(this));return !wcall;" title="Add to marked items" class="addToMarkedItems"><span>add to marked items</span></a></p>
+		
+		</div>
+		<div class="priceAndButton">
+			<div class="price" id="id50">
+  
+
+	
+		
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+</div>
+			<form id="id51" method="post" action="../../../?wicket:interface=book_page173882905_292521:1:content:basic:renditionContainer:renditions:accordion:list:0:contentPanel:fragmentContainer:form::IFormSubmitListener::&amp;sgw:lastsgwid=5-10049-22-173882905-0&amp;sgw:fallback=com.artnology.sgw.cda.product.book.BookPage"><div style="width:0px;height:0px;position:absolute;left:-100px;top:-100px;overflow:hidden"><input type="hidden" name="id51_hf_0" id="id51_hf_0" /></div><fieldset>
+				<button class="btn btn-primary btn-cart-empty addToBasket" name="addToBasketLink" id="id52" value="Get it now" onclick="if (blockAjaxButton==true) return false;blockAjaxButton=true;var wcall=wicketSubmitFormById('id51', '../../../?wicket:interface=book_page173882905_292521:1:content:basic:renditionContainer:renditions:accordion:list:0:contentPanel:fragmentContainer:form:addToBasketLink::IActivePageBehaviorListener:0:3&amp;wicket:ignoreIfNotActive=true&amp;sgw:lastsgwid=5-10049-22-173882905-0&amp;sgw:fallback=com.artnology.sgw.cda.product.book.BookPage', 'addToBasketLink' ,function() { ;blockAjaxButton=false}.bind(this),function() { ;blockAjaxButton=false}.bind(this), function() {return Wicket.$$(this)&amp;&amp;Wicket.$$('id51')}.bind(this));;; return false;" title="Add this product to your basket">Get it now</button>
+			</fieldset></form>
+		</div>
+		<div class="clear"></div>
+	
+
+	
+	
+	
+</div>
+	  	
+	  		<div class="hideContent accordionHead">
+	  			
+	<div class="floatLeft mediumType">
+		<span>Softcover</span>
+	</div>
+	<div class="itemInformationToolTip">
+		<span class="itemInformationToolTipPoint">Information</span>
+		<div class="itemInformationToolBoxOuter">
+			<div class="itemInformationToolBoxInner">
+				<div><p>Softcover (also known as softback) version.</p>
+<p>You can pay for Springer Books with <b>Visa, Mastercard, American Express or Paypal.</b></p>
+<p>Standard shipping is free of charge for individual customers.</p></div>
+			</div>
+		</div>
+	</div>
+
+	  			<span class="displayNone flapName wtdata_title">&nbsp;</span>
+<!-- 		  		<div class="buttons"> -->
+<!-- 					<a href="#" class="customBtn shoppingCart rightMargin7px" wicket:id="addToBasketLink"></a> -->
+<!-- 					<a href="#" class="customBtn markedItems" wicket:id="addToMarkedItemsLink"></a> -->
+<!-- 				</div> -->
+	  			<div class="price" id="id53">
+  
+  
+  <span>49,95&nbsp;&#8364;</span>
+  
+
+</div>
+	  		</div>
+	  		<div class="accordionBody displayNone clearfixAccordion">
+	
+		<div class="desc">
+			
+				<div class="fontWeightBold">
+</div>
+				<div class="clear"></div>
+			
+			<p>
+				<span class="blue" id="id54">
+	(gross)
+</span>
+				<span class="blue">  price for Tunisia</span>
+				<br/>
+				
+			</p>
+			<p class="info">ISBN 978-0-387-88697-8</p>
+			
+			<p class="info" id="id55">
+  free shipping for individuals worldwide
+</p>
+			
+			<p class="info" id="id56">
+  <!-- POD-PODACT --> 
+usually dispatched within 3 to 5 business days
+</p>
+			
+			
+			
+			
+			
+			<hr />
+		  
+			<p></p> 
+			<p><a href="#" id="id57" onclick="var wcall=wicketAjaxGet('../../../?wicket:interface=book_page173882905_292521:1:content:basic:renditionContainer:renditions:accordion:list:1:contentPanel:fragmentContainer:addToMarkedItemsLink::IBehaviorListener:0:3&amp;sgw:lastsgwid=5-10049-22-173882905-0&amp;sgw:fallback=com.artnology.sgw.cda.product.book.BookPage',function() { }.bind(this),function() { }.bind(this), function() {return Wicket.$('id57') != null;}.bind(this));return !wcall;" title="Add to marked items" class="addToMarkedItems"><span>add to marked items</span></a></p>
+		
+		</div>
+		<div class="priceAndButton">
+			<div class="price" id="id58">
+  
+
+	
+		
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+</div>
+			<form id="id59" method="post" action="../../../?wicket:interface=book_page173882905_292521:1:content:basic:renditionContainer:renditions:accordion:list:1:contentPanel:fragmentContainer:form::IFormSubmitListener::&amp;sgw:lastsgwid=5-10049-22-173882905-0&amp;sgw:fallback=com.artnology.sgw.cda.product.book.BookPage"><div style="width:0px;height:0px;position:absolute;left:-100px;top:-100px;overflow:hidden"><input type="hidden" name="id59_hf_0" id="id59_hf_0" /></div><fieldset>
+				<button class="btn btn-primary btn-cart-empty addToBasket" name="addToBasketLink" id="id5a" value="Get it now" onclick="if (blockAjaxButton==true) return false;blockAjaxButton=true;var wcall=wicketSubmitFormById('id59', '../../../?wicket:interface=book_page173882905_292521:1:content:basic:renditionContainer:renditions:accordion:list:1:contentPanel:fragmentContainer:form:addToBasketLink::IActivePageBehaviorListener:0:3&amp;wicket:ignoreIfNotActive=true&amp;sgw:lastsgwid=5-10049-22-173882905-0&amp;sgw:fallback=com.artnology.sgw.cda.product.book.BookPage', 'addToBasketLink' ,function() { ;blockAjaxButton=false}.bind(this),function() { ;blockAjaxButton=false}.bind(this), function() {return Wicket.$$(this)&amp;&amp;Wicket.$$('id59')}.bind(this));;; return false;" title="Add this product to your basket">Get it now</button>
+			</fieldset></form>
+		</div>
+		<div class="clear"></div>
+	
+
+	
+	
+	
+</div>
+	  	
+  	</div>
+</div>
+				</div>
+			</div>
+		</div>
+		
+	<div class="socialMediaIcons removeOnPrint noBackground">
+		<div class="fbLikeCont">
+			<div id="fb-root"></div>
+			<script>(function(d, s, id) {
+ 			  var js, fjs = d.getElementsByTagName(s)[0]; 
+ 			  if (d.getElementById(id)) return; 
+ 			  js = d.createElement(s); js.id = id; 
+ 			  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1"; 
+ 			  fjs.parentNode.insertBefore(js, fjs); 
+ 			}(document, 'script', 'facebook-jssdk'));</script> 
+			<div class="fb-like" data-href="http://www.springer.com/mathematics/probability/book/978-0-387-88697-8" data-send="false" data-layout="button_count" data-width="91" data-show-faces="false" data-font="arial"></div>
+		</div>
+		
+		<div class="twitterCont">
+		    <a href="https://twitter.com/share" class="twitter-share-button" data-hashtags="springer" data-lang="en" data-size="94">Tweet</a>
+			<script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+		</div>	
+	
+		<div class="gPlusCont">
+			<g:plusone class="g-plusone" size="medium" callback="wt_googlePlusone" href="#" data-href="http://www.springer.com/mathematics/probability/book/978-0-387-88697-8"></g:plusone>
+			<script type="text/javascript">
+			  (function() {
+			    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+			    po.src = 'https://apis.google.com/js/plusone.js';
+			    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+			  })();
+			</script>
+		</div>
+		
+		
+	</div>
+
+	</div>
+</div>
+		
+	<div class="horNavi">
+		<ul>
+			<li class="tab0 isActive firstListEntry" id="productNavigation1">
+				<h3><span><em><span>About this textbook</span></em></span></h3>
+			</li><li class="tab1" id="productNavigation2">
+				<h3><a href="http://www.springer.com/mathematics/probability/book/978-0-387-88697-8?detailsPage=reviews"><span>Reviews</span></a></h3>
+			</li><li class="tab2 last" id="productNavigation3">
+				<h3><a href="http://www.springer.com/mathematics/probability/book/978-0-387-88697-8?detailsPage=chapter" rel="nofollow"><span>buy chapter</span></a></h3>
+			</li>
+		</ul>
+		
+		<div class="clear"></div>
+		<div class="hrDotted clearfix"></div>
+	</div><!-- .productNavigation -->
+
+	
+	 
+	<div class="productTab">
+		<div class="colLeftContent">
+			<div class="colLeftContentContainer">
+				
+
+	
+		
+	
+ 
+		
+			<ul class="bigListIcons">
+				<li>
+					Easy to read
+				</li><li>
+					
+
+				</li><li>
+					Motivated with real cases addressing contemporary issues
+				</li><li>
+					
+
+				</li><li>
+					Detailed explanations of the use of R for time series analysis
+				</li>
+			</ul>
+	    
+
+		
+		<div class="springerHTML"><p>Yearly global mean temperature and ocean levels, daily share prices, and the signals transmitted back to Earth by the Voyager space craft are all examples of sequential observations over time known as time series. This book gives you a step-by-step introduction to analysing time series using the open source software R. Each time series model is motivated with practical applications, and is defined in mathematical notation. Once the model has been introduced it is used to generate synthetic data, using R code, and these generated data are then used to estimate its parameters. This sequence enhances understanding of both the time series model and the R function used to fit the model to data. Finally, the model is used to analyse observed data taken from a practical application. By using R, the whole procedure can be reproduced by the reader. All the data sets used in the book are available on the website http://staff.elena.aut.ac.nz/Paul-Cowpertwait/ts/.</p><p>The book is written for undergraduate students of mathematics, economics, business and finance, geography, engineering and related disciplines, and postgraduate students who may need to analyse time series as part of their taught programme or their research. </p><p>Paul Cowpertwait is an associate professor in mathematical sciences (analytics) at Auckland University of Technology with a substantial research record in both the theory and applications of time series and stochastic models. Andrew Metcalfe is an associate professor in the School of Mathematical Sciences at the University of Adelaide, and an author of six statistics text books and numerous research papers. Both authors have extensive experience of teaching time series to students at all levels. </p></div>
+		
+		
+		<p>
+	<span style="font-weight: bolder">Content Level &raquo;</span> <span>Professional/practitioner</span>
+</p>
+		
+		
+			<p>
+				<span style="font-weight: bolder">Keywords &raquo;</span>
+				<span>
+					
+					<span>Open Source</span>
+				</span><span>
+					<span> - </span>
+					<span>Stochastic model</span>
+				</span><span>
+					<span> - </span>
+					<span>Stochastic models</span>
+				</span><span>
+					<span> - </span>
+					<span>Time series</span>
+				</span><span>
+					<span> - </span>
+					<span>code</span>
+				</span><span>
+					<span> - </span>
+					<span>sets</span>
+				</span>
+		  	</p>
+	  	
+	  	
+		
+			<p>
+				<span style="font-weight: bolder">Related subjects &raquo;</span>
+				<span> 
+				
+		   			<a href="http://www.springer.com/economics/econometrics?SGWID=0-40534-0-0-0"><span>Econometrics / Statistics</span></a>
+		   		</span><span> 
+				<span> - </span>
+		   			<a href="http://www.springer.com/business+%26+management/marketing?SGWID=0-40520-0-0-0"><span>Marketing</span></a>
+		   		</span><span> 
+				<span> - </span>
+		   			<a href="http://www.springer.com/mathematics/probability?SGWID=0-10049-0-0-0"><span>Probability Theory and Stochastic Processes</span></a>
+		   		</span><span> 
+				<span> - </span>
+		   			<a href="http://www.springer.com/engineering/signals?SGWID=0-186-0-0-0"><span>Signals &amp; Communication</span></a>
+		   		</span><span> 
+				<span> - </span>
+		   			<a href="http://www.springer.com/statistics/statistical+theory+and+methods?SGWID=0-10129-0-0-0"><span>Statistical Theory and Methods</span></a>
+		   		</span><span> 
+				<span> - </span>
+		   			<a href="http://www.springer.com/computer/theoretical+computer+science?SGWID=0-174204-0-0-0"><span>Theoretical Computer Science</span></a>
+		   		</span> 
+		  	</p> 
+		
+		
+		
+	
+		
+			<h3 class="flapHead topMargin10px">Table of contents / Sample pages<span class="displayNone flapName wtdata_tableOfContentssamplePages">&nbsp;</span></h3>
+			<div class="showOnPrint flapContent" id="id1c">
+	<div class="springerHTML">Time Series Data.- Correlation.- Forecasting Strategies.- Basic Stochastic Models.- Regression.- Stationary Models.- Non-stationary Models.- Long-Memory Processes.- Spectral Analysis.- System Identification.- Multivariate Models.- State Space Models.</div>
+	<ul class="listDownloads">
+	
+		
+
+		
+
+		
+		
+					
+			<li class="listItemDownloads">
+	<a href="http://www.springer.com/cda/content/document/cda_downloaddocument/9780387886978-c6.pdf?SGWID=0-0-45-772113-p173882905" class="linkPdf medium">Download Sample pages 6 (pdf, 350 kB)</a>
+</li>
+		
+		
+		
+			
+	</ul>
+</div>
+		
+
+		
+	
+		
+	
+		
+	
+	
+
+		
+		
+		
+	
+		
+			<h3 class="flapHead topMargin10px">Popular Content within this publication<span class="displayNone flapName wtdata_downloadChart">&nbsp;</span></h3>
+			<div class="showOnPrint flapContent" id="id1d">
+	<a name="realtime"></a>
+	
+	<script type="text/javascript">var SL = {"isxn":"978-0-387-88698-5","chartperiod":"7","topperiod":"7","publication":"Introductory+Time+Series+with+R"};
+var loadingHtml = "<p>... loading data ...<\/p>";
+var errorHtml = "<p>Can't load realtime data.<\/p>";
+var noDataHtml = "<p>No realtime data found.<\/p>";
+var requestingPdf = "<p>Requesting PDF<\/p>";
+var downloadingPdf = "<p>Downloading PDF<\/p>";
+var downloadComplete = "<p>Download complete<\/p>";
+var downloadHere = "» Click here to download the article ";
+var realtimeDownloadHeadline = "Download";
+var noAccessError = "No access to springerlink";
+var timeoutError = "Springerlink is not available";
+var realtimeSubHeadlineArticles = "";
+var realtimeHideChart = "false";
+var realtimePopupHelper = "Please wait a second.";
+var isRealtimeChartEnabled = "false";
+var realtimeUrlChart = "{realtimeUrlChart=http://realtime.springer.com/data/getChartData.php}";
+var realtimeUrlTop = "http://realtime.springer.com/data/top_downloads.php";
+</script>
+
+	<link rel="stylesheet" type="text/css" href="/assets/realtime.prod_min.css?r=4809c8746885efd65ffffb7d072da82fba95dc95"/>
+	
+	<h3>&nbsp;
+		<ul id="chart-nav" class="subnav">
+			<li><a id="p7" href="#">7 days</a></li>
+			<li><a id="p30" href="#">30 days</a></li>
+			<li><a id="p90" href="#">90 days</a></li>
+		</ul>
+		<div class="hrDotted clear"><hr /></div>
+	</h3>
+	<div id="chart-ct"></div>
+	<h3 class="subheadline1 noMarginTop realtimeSubHeadlineArticles"><span>Articles</span></h3>
+	<div id="topdownloads"  ></div>
+	
+	<!--[if IE]><script language="javascript" type="text/javascript" src="/sgw/js/excanvas.min.js"></script><![endif]-->
+	
+	<script type="text/javascript" src="/assets/realtime.prod_min.js?r=4809c8746885efd65ffffb7d072da82fba95dc95"/>
+	
+	<script type="text/javascript" src="/sgw/js/realtime.download.js?r=4809c8746885efd65ffffb7d072da82fba95dc95"></script>
+	<div id="showAllAuthors" style="display: none;">Show all authors</div>
+	<div id="hideAuthors" style="display: none;">Hide authors</div>
+</div>
+		
+
+		
+	
+		
+	
+		
+	
+	
+
+
+		
+	<div id="id43"></div>
+
+
+			</div>
+		</div>
+	</div>
+
+	</div>
+	<div class="clear"></div>
+	<!-- END of LEFT COLUMN	-->
+
+
+	<div id="id5b" style="display:none"></div>
+	
+
+			</div>
+			<!-- END of LEFT COLUMN -->			
+
+			<!-- START of RIGHT COLUMN -->
+			<div class="colRight" id="id5c">
+	<div class="col3">
+
+		<div class="portlet" id="id5d" style="display: none">
+	
+	  	<div class="portletHeadline">
+	
+		<h3>Your Shopping Cart</h3>
+		<div class="shoppingCartIcon"></div>
+	
+</div>
+	  	<div class="displayNone cmPortletName displayNone wtdata_ShoppingCartPortlet">&nbsp;</div>
+		
+		<div class="portletBox portletBoxGrey">
+	
+		
+		<div class="floatLeft">0 eBook</div>
+		<div class="floatRight fSize14">
+			
+				<span class="fSize11">Subtotal:</span> 0
+			
+			
+		</div>
+		<div class="clear"></div>
+		<div class="topMargin22px clearfix contentRight">
+			<a href="http://www.springer.com/?SGWID=0-102-34-0-0" class="greyBtn floatRight"><span>To cart</span></a>
+		</div>
+		
+	
+</div>
+		
+		
+	
+</div>
+				
+		<div class="portlet" id="id5e" style="display: none">
+	
+	  	<div class="portletHeadline">
+	
+		<div class="portletHeadline"><h3>Your marked items</h3></div>
+	
+</div>
+	  	<div class="displayNone cmPortletName displayNone wtdata_MarkedItemsPortlet">&nbsp;</div>
+		
+		<div class="portletBoxSmall">
+  <div class="dynamicContentAccordion accordion" id="markedItemPortlet">
+  	
+  		<h4 class="accordionSectionOpen accordionHead">Manage your marked Items<span class="displayNone flapName wtdata_manageMarketItems">&nbsp;</span></h4>
+  		<div class="accordionBody displayNone clearfixAccordion">
+    	    
+  		    <div id="id5f">
+	
+		
+
+		
+		
+		
+
+		
+
+		
+
+		
+
+		<div>
+			<div class="hrDotted topMargin20px bottomMargin14px"><hr/></div>
+			<p class="contentCenter blue leftRightMargin70px lh16px">
+				You have no marked items.
+			</p>
+			<div class="hrDotted topBottomMargin10px"><hr /></div>
+			<div class="clearfix bottomMargin10px">
+				<div class="floatRight">
+					<a href="#" class="greyBtn" rel="nofollow" id="id60" onclick="var wcall=wicketAjaxGet('../../../?wicket:interface=book_page173882905_292521:1:rightColumn:markedItemPortlet:portletContent:accordion:list:0:content:noMarkedItemsPanel:uploadIsbnListLink::IBehaviorListener:0:3&amp;sgw:lastsgwid=5-10049-22-173882905-0&amp;sgw:fallback=com.artnology.sgw.cda.product.book.BookPage',function() { }.bind(this),function() { }.bind(this), function() {return Wicket.$('id60') != null;}.bind(this));return !wcall;"><span>Import List</span></a>
+				</div>
+			</div>
+		</div>
+
+		<div id="id61" style="display:none"></div>
+	
+</div>
+  		</div>
+  	
+  		<h4 class="hideContent accordionHead">Your saved Catalog List<span class="displayNone flapName wtdata_savedCatalogs">&nbsp;</span></h4>
+  		<div class="accordionBody displayNone clearfixAccordion">
+    	    
+  		    <div id="id62">
+	
+		
+			
+		<div class="markedItems">
+			<div class="hrDotted topMargin20px bottomMargin14px"><hr/></div>
+			<p class="contentCenter blue leftRightMargin70px lh16px">
+				You are not logged in! Please log in to edit your catalogs.
+			</p>
+			<div class="hrDotted topBottomMargin15px"><hr /></div>
+		</div>
+			
+		
+	
+</div>
+  		</div>
+  	
+  </div>
+</div>
+		
+  	
+  
+		
+	
+</div>
+
+		
+	
+		<div class="portlet" id="E_CONTENT">
+	
+	  	<div class="portletHeadline">
+	
+		<div class="portletHeadline"><h3>Read this Book on Springerlink</h3></div>
+	
+</div>
+	  	
+		
+		<div class="containerToOpenLayers">
+	<ul class="listToOpenLayer">
+		<li class="listItemToOpenLayer orangeItem">
+			<a class="linkToOpenLayer isLink rightArrow" href="http://link.springer.com/978-0-387-88698-5" rel="external nofollow" onmousedown="wt.sendinfo({linkId:'read_online'});">
+				<span>Read this book on SpringerLink</span>
+			</a>
+		</li>
+	</ul>
+	
+
+</div>
+		
+		
+	
+</div><!-- .portlet -->
+	
+		<!-- .portlet --> 
+ 	
+		<div class="portlet" id="SERVICES_FOR_THIS_PRODUCT">
+	
+	  	<div class="portletHeadline">
+	
+		<div class="portletHeadline"><h3>Services for this book</h3></div>
+	
+</div>
+	  	
+		
+		<div class="containerToOpenLayers">
+	<ul class="listToOpenLayer">
+		
+		
+		
+		<li class="listItemToOpenLayer">
+	
+		<a class="linkToOpenLayer" href="#" id="id63" onclick="var wcall=wicketAjaxGet('../../../?wicket:interface=book_page173882905_292521:1:rightColumn:servicesForThisProductPortlet:portletContent:onlineReviewCopy:showLayerLink::IBehaviorListener:1:3&amp;sgw:lastsgwid=5-10049-22-173882905-0&amp;sgw:fallback=com.artnology.sgw.cda.product.book.BookPage',function() { }.bind(this),function() { }.bind(this), function() {return !(isElementActive(document.getElementById('id64'))); return Wicket.$('id63') != null;}.bind(this));"><span>Reserve an Online Book Review Copy</span></a>
+		<div class="bigLayerSmallHeight bigLayerSmallHeightOrderOnlineReview portletLayer">
+			<div class="layerContainer">
+				<div class="layerHeader">
+					<h2 class="layerTitle">Reserve an Online Book Review Copy</h2>
+					<a href="#" class="link btnToCloseLayer"><span class="hideMe">Close</span></a>
+				</div><!-- .layerHeader -->
+				
+				
+	
+    <div class="onlineReviewCopy">
+		<div id="layerIsOrcMarker" class="displayNone wtdata_">&nbsp;</div>
+		<div class="layerContent" id="id66">
+			<div id="id67" style="display:none"></div>
+			<div id="id68" style="display:none"></div>
+			<div id="id69" style="display:none"></div>
+			<div id="id6a" style="display:none"></div>
+			<div id="id6b" style="display:none"></div>
+		</div>
+	</div>
+
+<!-- .layerContent -->
+			</div><!-- .layerContainer -->
+		</div><!-- .mediumLayer -->
+		<div class="portletLayerBridge"></div>
+	
+</li>
+		
+		<li class="listItemToOpenLayer">
+	
+		<a class="linkToOpenLayer" href="#" id="id6c" onclick="var wcall=wicketAjaxGet('../../../?wicket:interface=book_page173882905_292521:1:rightColumn:servicesForThisProductPortlet:portletContent:onlineExaminationCopy:showLayerLink::IBehaviorListener:1:3&amp;sgw:lastsgwid=5-10049-22-173882905-0&amp;sgw:fallback=com.artnology.sgw.cda.product.book.BookPage',function() { }.bind(this),function() { }.bind(this), function() {return !(isElementActive(document.getElementById('id6d'))); return Wicket.$('id6c') != null;}.bind(this));"><span>Request a Print Examination Copy</span></a>
+		<div class="bigLayerSmallHeight bigLayerSmallHeightOrderOnlineReview portletLayer">
+			<div class="layerContainer">
+				<div class="layerHeader">
+					<h2 class="layerTitle">Request a Print Examination Copy</h2>
+					<a href="#" class="link btnToCloseLayer"><span class="hideMe">Close</span></a>
+				</div><!-- .layerHeader -->
+				
+				
+	
+	<div class="onlineExaminationCopy">
+		<div id="layerIsOecMarker" class="displayNone wtdata_">&nbsp;</div>
+		<div class="layerContent" id="id6f">
+			<div id="id70" style="display:none"></div>
+			<div id="id71" style="display:none"></div>
+			<div id="id72" style="display:none"></div>
+			<div id="id73" style="display:none"></div>
+			<div id="id74" style="display:none"></div>
+		</div>
+	</div>
+
+<!-- .layerContent -->
+			</div><!-- .layerContainer -->
+		</div><!-- .mediumLayer -->
+		<div class="portletLayerBridge"></div>
+	
+</li>
+
+		<li class="listItemToOpenLayer" id="id75">
+	
+		<a class="linkToOpenLayer" href="#" id="id76" onclick="var wcall=wicketAjaxGet('../../../?wicket:interface=book_page173882905_292521:1:rightColumn:servicesForThisProductPortlet:portletContent:productFlyer:showLayerLink::IBehaviorListener:1:3&amp;sgw:lastsgwid=5-10049-22-173882905-0&amp;sgw:fallback=com.artnology.sgw.cda.product.book.BookPage',function() { }.bind(this),function() { }.bind(this), function() {return !(isElementActive(document.getElementById('id75'))); return Wicket.$('id76') != null;}.bind(this));"><span>Download Product Flyer</span></a>
+		<div class="wideLayer portletLayer">
+			<div class="layerContainer">
+				<div class="layerHeader">
+					<h2 class="layerTitle">Download Product Flyer</h2>
+					<a href="#" class="link btnToCloseLayer" id="id77" onclick="var wcall=wicketAjaxGet('../../../?wicket:interface=book_page173882905_292521:1:rightColumn:servicesForThisProductPortlet:portletContent:productFlyer:layer:layerHeader:closeLayerLink::IBehaviorListener:0:3&amp;sgw:lastsgwid=5-10049-22-173882905-0&amp;sgw:fallback=com.artnology.sgw.cda.product.book.BookPage',function() { }.bind(this),function() { }.bind(this), function() {return Wicket.$('id77') != null;}.bind(this));return !wcall;"><span class="hideMe">Close</span></a>
+				</div><!-- .layerHeader -->
+				
+				<div class="noPrintButton layerContent" id="id78">
+					<div id="id79" style="display:none"></div>
+				</div><!-- .layerContent -->
+			</div><!-- .layerContainer -->
+		</div><!-- .mediumLayer -->
+		<div class="portletLayerBridge"></div>
+	
+</li>
+
+		
+
+		<li class="listItemToOpenLayer">
+			<a class="linkToOpenLayer isLink" href="https://images.springer.com/sgw/books/raw/9780387886978.tif" rel="external nofollow"><span>Download High-Resolution Cover</span></a>
+		</li>
+	</ul>
+</div>
+		
+		
+	
+</div><!-- .portlet --> 
+	
+		<div class="portlet" id="id7a">
+	
+	  	<div class="portletHeadline">
+	
+		<div class="portletHeadline"><h3>New Book Alert</h3></div>
+	
+</div>
+	  	
+		
+		<div id="id7b" class="portletBox portletBoxGrey">
+	
+	<div class="topMargin3px">
+	
+		<p class="fSize11 lineHeight16 noMargin">Get alerted  on new Springer publications in the subject area of <span class="blue">Probability Theory and Stochastic Processes</span>.</p>
+
+		
+		
+			
+
+
+		
+		
+
+		<form action="../../../?wicket:interface=book_page173882905_292521:1:rightColumn:alertPortlet:portletContent:alertContentContainer:alertForm::IFormSubmitListener::&amp;sgw:lastsgwid=5-10049-22-173882905-0&amp;sgw:fallback=com.artnology.sgw.cda.product.book.BookPage" id="id7d" method="post"><div style="width:0px;height:0px;position:absolute;left:-100px;top:-100px;overflow:hidden"><input type="hidden" name="id7d_hf_0" id="id7d_hf_0" /></div>
+			<div class="formElements topMargin10px clearfix">
+				
+					<label for="id41">Your E-Mail Address</label>
+					<input class="textInput textInput272" type="text" id="id41" value="" name="subscriberEmailContainer:subscriberEmail"/>
+					<div class="clear bottomMargin5px"></div>
+				
+				<div class="floatRight">
+					<button type="submit" class="greyBtn" value="Subscribe" name="submitButton" id="id7e" onclick="if (blockAjaxButton==true) return false;blockAjaxButton=true;var wcall=wicketSubmitFormById('id7d', '../../../?wicket:interface=book_page173882905_292521:1:rightColumn:alertPortlet:portletContent:alertContentContainer:alertForm:submitButton::IActivePageBehaviorListener:0:3&amp;wicket:ignoreIfNotActive=true&amp;sgw:lastsgwid=5-10049-22-173882905-0&amp;sgw:fallback=com.artnology.sgw.cda.product.book.BookPage', 'submitButton' ,function() { ;blockAjaxButton=false}.bind(this),function() { ;blockAjaxButton=false}.bind(this), function() {return Wicket.$$(this)&amp;&amp;Wicket.$$('id7d')}.bind(this));;; return false;"><span>Submit</span></button>
+				</div>
+			</div>
+			
+		</form>
+	
+</div>
+	
+</div>
+		
+		
+	
+</div>
+
+		<div class="portlet" id="ADD_INFO">
+	
+	  	<div class="portletHeadline">
+	
+		<div class="portletHeadline"><h3>Additional information</h3></div>
+	
+</div>
+	  	
+		
+		<div class="containerToOpenLayers greyLinkList">
+  
+	<ul class="listToOpenLayer">
+		
+			<li class="listItemToOpenLayer">
+	<a class="rightArrow linkToOpenLayer isLink" href="http://elena.aut.ac.nz/~pcowpert/ts"><span>Author website</span><!-- Extended e.g. for big list items --></a>
+</li>
+		
+	</ul><!-- .listToOpenLayer -->
+  
+  
+</div>
+		
+		
+	
+</div><!-- .portlet --> 
+
+	
+
+		<div class="portlet" id="id42"><img class="loading" src="../../../resources/org.apache.wicket.ajax.AbstractDefaultAjaxBehavior/indicator.gif"/></div>
+		
+	</div><!-- .col3 -->
+</div>
+			<!-- END of RIGHT COLUMN -->
+		</div>
+	
+	<div class="clear"></div>
+<!-- END of CONTENT -->
+<!-- START of FOOTER -->
+		
+	
+	
+	<footer>
+<div id="footer">
+<div id="footer-nav" class="section">
+<div id="footer-nav-misc">
+<div class="block" role="navigation">
+<h6>My Account</h6>
+<ul>
+<li><a href="https://checkout.springer.com/checkout">Shopping Cart</a></li><li><a href="https://www.springer.com/myspringer">MySpringer</a></li><li><a href="https://www.springer.com/myspringer">Login/Registration</a></li><li><a href="http://www.springer.com/alert">SpringerAlerts</a></li><li><a href="&#1;">&#1;</a></li><li><a href="&#1;">&#1;</a></li><li><a href="&#1;">&#1;</a></li><li><a href="&#1;">&#1;</a></li><li><a href="&#1;">&#1;</a></li>
+</ul>
+</div><div class="block" role="navigation">
+<h6>Company</h6>
+<ul>
+<li><a href="http://www.springer.com/about+springer">About Us</a></li><li><a href="http://www.springer.com/about+springer/media/pressreleases">Media</a></li><li><a href="http://www.springer.com/about+springer/career">Careers</a></li><li><a href="&#1;">&#1;</a></li><li><a href="&#1;">&#1;</a></li><li><a href="&#1;">&#1;</a></li><li><a href="&#1;">&#1;</a></li><li><a href="&#1;">&#1;</a></li><li><a href="&#1;">&#1;</a></li>
+</ul>
+</div><div class="block" role="navigation">
+<h6>Help &amp; Contact</h6>
+<ul>
+<li><a href="http://www.springer.com/help?SGWID=0-114-0-0-0">Help Overview</a></li><li><a href="http://www.springer.com/gp/help/buying-in-the-springer-shop/16712">Order FAQ</a></li><li><a href="http://www.springer.com/contact?SGWID=0-40103-0-0-0">Contact Us</a></li><li><a href="http://www.springer.com/generic/legal">Imprint</a></li><li><a href="&#1;">&#1;</a></li><li><a href="&#1;">&#1;</a></li><li><a href="&#1;">&#1;</a></li><li><a href="&#1;">&#1;</a></li><li><a href="&#1;">&#1;</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="footer-legal" class="section" role="contentinfo">
+<div id="mobile-nav">
+<span class="pillow-btn open-legal" title="Show Legal Information">Legal</span>
+</div>
+<div role="contentinfo" id="legal">
+<span id="footer-copyright">&copy; Springer, Part of Springer Science+Business Media</span>
+<span class="footer-links"><a href="http://www.springer.com/generic/privacy">Privacy Policy</a>, <a href="http://www.springer.com/generic/terms">General Terms &amp; Conditions</a>, <a href="&#1;">2015</a></span>
+<div id="diagnostic-info"></div>
+</div>
+</div>
+<div id="footer-branding" class="section">
+<div class="block">
+<span id="branding-logo" title="Springer">Springer</span>
+</div>
+</div>
+</div>
+</footer>
+
+
+<!-- END of FOOTER -->
+	<!-- Helper for blocking ui -->
+	<div id="blockingUi" style="display: none;">
+		Please wait...
+	</div>
+</div>
+
+<div>
+	
+	<script type="text/javascript" src="/sgw/js/baynote/baynote.js"></script>
+	<script type="text/javascript">/*<![CDATA[*/
+var product={
+    "identifier": "9780387886978",
+    "fn": "Introductory Time Series with R",
+    "description": "Yearly global mean temperature and ocean levels, daily share prices, and the signals tran",
+    "category": ["Mathematics"],
+    "brand": "Springer",
+    "price": "49.95",
+    "amount": "49.95",
+    "currency": "EUR",
+    "url": "http://www.springer.com/mathematics/probability/book/978-0-387-88697-8",
+    "photo": "https://images.springer.com/sgw/books/medium/9780387886978.jpg",
+    "valid": 0
+};
+/*]]>*/</script>
+	<span><script type="text/javascript">/*<![CDATA[*/
+
+wt = $.extend(new webtrekkV3({
+  "form": "0",
+  "contentGroup": {
+    "1": "Mathematics",
+    "2": "Probability"
+  },
+  "domain": "www.springer.com;checkout.springer.com;secure.worldpay.com",
+  "heatmap": "0",
+  "linkTrack": "link",
+  "contentId": "Mathematics.9780387886978_Introductory Time Series with R.aboutThis"
+}), {
+  "mediaCode": "wt_mc;cm_mmc",
+  "linkTrackDownloads": "avi;bmp;csv;doc;docx;dotx;eps;exe;gif;gz;jpeg;jpg;m4v;mov;mp3;mp4;mpg;pdf;png;ppt;pptx;ps;rss;rtf;swf;tar;tar.gz;tgz;tif;txt;wmv;xls;xlsx;zip"
+});
+
+wt.sendinfo();
+
+/*]]>*/</script></span>
+
+</div>
+</body>
+<!--[if lt IE 7]> </html> <![endif]-->
+<!--[if IE 7]> </html> <![endif]-->
+<!--[if IE 8]> </html> <![endif]-->
+<!--[if IE 9]> </html> <![endif]-->
+<!--[if gt IE 9]><!--> </html>  <!--<![endif]-->
+
